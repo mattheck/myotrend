@@ -1,0 +1,139 @@
+
+SHORTCODES
+
+
+scouron PURCHASED
+about 17 hours ago Flag
+On the portfolio page, I’m attempting to show some additional information down near the work-meta and nectar love wrap area, but I can never get it to display.
+
+For instance, I dropped the following into template-portfolio.php but it doesn’t show:
+
+<div class="covermonk-view-wrap">
+  <a href="#">TEST</a>
+</div><!--/covermonk-view-wrap-->
+Can you point me in the right direction?
+
+ThemeNectar
+ThemeNectar AUTHOR
+about 12 hours ago Flag
+Hey,
+
+You’d need to add that into the shortcode-processing.php file located in the nectar/tinyme directory as well – the portfolio template you added won’t be used with the page builder element/shortcode
+
+Cheers
+
+dscouron
+dscouron PURCHASED
+about 11 hours ago Flag
+Perfect. Thank you. Is this something that can be added to a child theme, because I would assume that on any future updates, the shortcode-processing.php would be overwritten.
+
+
+REWRITES
+
+it4cgn
+it4cgn PURCHASED
+2 days ago Flag
+Again thanks for the best Wordpress Theme and your good support!
+
+Im looking for a way to remove portfolio slug for SEO reasons:
+
+- is now: example.com/portfolio/ postname /
+
+- should be: example.com/ postname /
+
+Its not about changing the slug, found that in the settings.
+
+What I found is this post with recommendation a plugin named “Custom Post Type Permalinks”, but is only allowes to change the part after the /portfolio/”changeable”
+
+https://wordpress.org/support/topic/remove-portfolio-url
+So is it possibile to completely remove the ”/portfolio” from the url with Salient?
+
+Thank you for your help! Best, Lars
+
+it4cgn
+it4cgn PURCHASED
+2 days ago Flag
+Ok, seems to be yesterday was a to long day for me…
+
+The solution is pretty easy for Salient (v5.5.53):
+
+salient/functions.php – edit function portfolio_register() around line NO. 1964:
+
+set: ‘rewrite’ => array(‘slug’ => $custom_slug,’with_front’ => false),
+
+to: ‘rewrite’ => false,
+
+Save, open WP-> Settings -> Permalinks -> Save, Open your portfolio items and save them again. The right url should be changed now.
+
+Seems to be working. Did I missed some important setting?
+
+Best, Lars
+
+ThemeNectar
+ThemeNectar AUTHOR
+1 day ago Flag
+Hey Lars, that should work fine :)
+
+Cheers
+
+it4cgn
+it4cgn PURCHASED
+about 18 hours ago Flag
+Right after I posted this it stopped working, maybe due some browser caching. Could you please verfiy that this is the right way to remove the /Portfolio form the URL?
+
+ThemeNectar
+ThemeNectar AUTHOR
+about 12 hours ago Flag
+Hey – try following this instead: http://wpgarage.com/code-snippets/remove-permalink-base-custom-post-type-slug/
+
+
+Contact Form 7 - text field background
+
+okstudios PURCHASED
+2 days ago Flag
+Hi there,
+
+Reference page: http://motioncue.com/contact-us/
+
+[1] I’m trying to change the background color of the text field in my contact form. I’ve gone through previous comments, but it has only helped to change the bg color when the text fields are active, if not they remain grey.
+
+[2] Also is there a way to change the bg color of the dropdown menu on the same page. Right now, it’s white, and not sure how that can be changed.
+
+Thank you.
+
+ThemeNectar
+ThemeNectar AUTHOR
+1 day ago Flag
+Hey,
+
+1. Add this into the custom css box in the Salient options panel:
+body .container-wrap input[type="text"], body .container-wrap textarea, .container-wrap input[type="email"], .container-wrap input[type="password"], .container-wrap input[type="tel"], .container-wrap input[type="url"], .container-wrap input[type="search"], .container-wrap input[type="date"] {
+  background-color: #fff!important;
+}
+2.
+
+select {
+   background-color: #000!important;
+} 
+Cheers
+
+
+Masonry Blog Title Font Size
+
+
+faithchurchfilm PURCHASED
+1 day ago Flag
+I’m so frustrated!!!! Been trying for for around 2.5 hours to try and change the font size for the title of a full size masonry layout. Here is the link…..
+
+http://newpd.wpengine.com
+When you hover over the portfolio images the red area with white text comes up from the bottom and the text is HUGE! I need the correct css code to change that font size please. Thanks!!!! :)
+
+ThemeNectar
+ThemeNectar AUTHOR
+about 15 hours ago Flag
+Hey – the masonry titles are at a fixed size that css would be needed to alter. Add this into the custom css box in the Salient options panel:
+
+body .masonry-blog-item h2.title {
+  font-size: 37px !important;
+  line-height: 40px !important;
+}
